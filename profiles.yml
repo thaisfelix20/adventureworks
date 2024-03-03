@@ -1,0 +1,10 @@
+adventureworks:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: savvy-arbor-415614
+      dataset: dbt_thais # You can also use "schema" here
+      threads: 4 # Must be a value of 1 or greater 
+      keyfile: C:\Users\thais\desafioAdventureWorks\jsonbigquery\savvy-arbor-415614-9540e4502038.json

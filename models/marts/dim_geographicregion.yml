@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: dim_geographicregion
+    columns: 
+      - name: Sk_geographicregion
+        testes:
+          - not_null
+          - unique    
+
+      - name: addressid
+        tests:
+          - not_null
+          - unique
+
+      - name: addressline1
+
+      - name: addressline2
+
+      - name: city
+
+      - name: stateprovinceid
+
+      - name: postalcode   
+
+      - name: stateprovincecode
+
+      - name: countryregioncode
+
+      - name: name_state
+
+      - name: territoryid 
+      
+      - name: name_country   

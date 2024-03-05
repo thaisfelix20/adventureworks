@@ -1,0 +1,221 @@
+version: 2
+
+sources:
+  - name: raw_adventureworks
+    schema: adventureworks2
+    tables:
+      - name: customer
+        columns: 
+          - name: personid
+          - name: modifieddate
+          - name: rowguid
+          - name: _sdc_table_version
+          - name: territoryid
+          - name: _sdc_received_at
+          - name: _sdc_sequence
+          - name: storeid	
+          - name: customerid
+          - name: _sdc_batched_at
+      - name: salesorderheader
+        columns:
+          - name: purchaseordernumber
+          - name: shipmethodid	
+          - name: salesorderid	
+          - name: billtoaddressid
+          - name: salespersonid
+          - name: modifieddate
+          - name: rowguid
+          - name: taxamt
+          - name: shiptoaddressid
+          - name: onlineorderflag
+          - name: _sdc_table_version
+          - name: territoryid
+          - name: status
+          - name: currencyrateid
+          - name: orderdate
+          - name: _sdc_received_at
+          - name: _sdc_sequence
+          - name: creditcardapprovalcode
+          - name: subtotal
+          - name: creditcardid
+          - name: revisionnumber
+          - name: freight
+          - name: duedate
+          - name: totaldue
+          - name: customerid
+          - name: shipdate
+          - name: _sdc_batched_at
+          - name: accountnumber
+
+      - name: salesorderdetail
+        columns:
+          - name: orderqty
+          - name: salesorderid
+          - name: salesorderdetailid
+          - name: unitprice
+          - name: specialofferid
+          - name: modifieddate
+          - name: rowguid
+          - name: _sdc_table_version
+          - name: productid
+          - name: _sdc_received_at
+          - name: _sdc_sequence
+          - name: _sdc_batched_at
+          - name: carriertrackingnumber
+          - name: unitpricediscount
+      - name: salesreason
+        columns:
+          - name: reasontype
+          - name: modifieddate
+          - name: name
+          - name: salesreasonid
+          - name: _sdc_sequence
+          - name: _sdc_table_version
+          - name: _sdc_received_at
+          - name: _sdc_batched_at
+
+      - name: salesorderheadersalesreason
+        columns: 
+          - name: salesorderid
+          - name: modifieddate
+          - name: salesreasonid
+          - name: _sdc_sequence
+          - name: _sdc_table_version
+          - name: _sdc_received_at
+          - name: _sdc_batched_at
+      - name: creditcard
+        columns:
+          - name: cardtype
+          - name: expyear
+          - name: modifieddate
+          - name: _sdc_table_version
+          - name: expmonth
+          - name: _sdc_received_at
+          - name: _sdc_sequence
+          - name: cardnumber
+          - name: creditcardid
+          - name: _sdc_batched_at
+
+      - name: product
+        columns:
+          - name: sellenddate
+          - name: safetystocklevel
+          - name: finishedgoodsflag
+          - name: class
+          - name: makeflag
+          - name: productnumber
+          - name: reorderpoint
+          - name: modifieddate
+          - name: rowguid
+          - name: productmodelid
+          - name: weightunitmeasurecode
+          - name: standardcost
+          - name: name
+          - name: _sdc_table_version
+          - name: style
+          - name: sizeunitmeasurecode
+          - name: productid
+          - name: productsubcategoryid
+          - name: _sdc_received_at
+          - name: _sdc_sequence
+          - name: listprice
+          - name: daystomanufacture
+          - name: productline
+          - name: size
+          - name: _sdc_batched_at
+          - name: color
+          - name: sellstartdate
+          - name: weight
+
+      - name: specialofferproduct
+        columns:
+          - name: specialofferid
+          - name: modifieddate
+          - name: rowguid
+          - name: productid
+          - name: _sdc_sequence
+          - name: _sdc_table_version
+          - name: _sdc_received_at
+          - name: _sdc_batched_at
+     
+      - name: person
+        columns:
+        - name: lastname
+        - name: persontype
+        - name: namestyle
+        - name: suffix
+        - name: modifieddate
+        - name: rowguid
+        - name: _sdc_table_version
+        - name: emailpromotion
+        - name: _sdc_received_at
+        - name: _sdc_sequence
+        - name: title
+        - name: businessentityid
+        - name: _sdc_batched_at
+        - name: firstname
+        - name: middlename
+
+      - name: countryregion
+        columns:
+        - name: countryregioncode
+        - name: modifieddate
+        - name: name
+        - name: _sdc_sequence
+        - name: _sdc_table_version
+        - name: _sdc_received_at
+        - name: _sdc_batched_at
+
+      - name: stateprovince
+        columns:
+        - name: stateprovinceid
+        - name: countryregioncode
+        - name: modifieddate
+        - name: rowguid
+        - name: name
+        - name: _sdc_table_version
+        - name: territoryid
+        - name: _sdc_received_at
+        - name: _sdc_sequence
+        - name: isonlystateprovinceflag
+        - name: _sdc_batched_at
+        - name: stateprovincecode
+
+      - name: address
+        columns:
+        - name: stateprovinceid
+        - name: city
+        - name: addressline2
+        - name: modifieddate
+        - name: rowguid
+        - name: _sdc_table_version
+        - name: postalcode
+        - name: spatiallocation
+        - name: _sdc_received_at
+        - name: _sdc_sequence
+        - name: addressline1
+        - name: _sdc_batched_at
+        - name: addressid
+
+      - name: emailaddress
+        columns:
+        - name: emailaddressid
+        - name: modifieddate
+        - name: rowguid
+        - name: _sdc_table_version
+        - name: _sdc_received_at
+        - name: _sdc_sequence
+        - name: emailaddress
+        - name: businessentityid
+        - name: _sdc_batched_at
+
+      - name: productproductphoto
+        columns:
+        - name: modifieddate
+        - name: productphotoid
+        - name: productid
+        - name: primary
+        - name: _sdc_sequence
+        - name: _sdc_table_version
+        - name: _sdc_received_at
+        - name: _sdc_batched_at

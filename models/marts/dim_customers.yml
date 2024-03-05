@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: dim_customers
+    columns: 
+      - name: Sk_customers
+        testes:
+          - not_null
+          - unique    
+
+      - name: customerid
+        tests:
+          - not_null
+          - unique
+
+      - name: businessentityid
+        tests:
+          - not_null
+
+      - name: persontype
+
+      - name: full_name
+
+      - name: emailpromotion
+
+      - name: personid 
+
+      - name: storeid 
+
+      - name: territoryid  
+      
+      - name: emailaddress     

@@ -7,4 +7,4 @@ product as (
     from {{ ref('stg_product') }}
 )
 select *
-from creditcard
+from product

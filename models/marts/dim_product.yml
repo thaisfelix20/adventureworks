@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: dim_product
+    columns: 
+      - name: Sk_products
+        testes:
+          - not_null
+          - unique    
+
+      - name: productid
+        tests:
+          - not_null
+          - unique
+
+      - name: name_product
+
+      - name: daystomanufacture

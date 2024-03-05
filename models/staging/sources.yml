@@ -127,17 +127,6 @@ sources:
           - name: sellstartdate
           - name: weight
 
-      - name: specialofferproduct
-        columns:
-          - name: specialofferid
-          - name: modifieddate
-          - name: rowguid
-          - name: productid
-          - name: _sdc_sequence
-          - name: _sdc_table_version
-          - name: _sdc_received_at
-          - name: _sdc_batched_at
-     
       - name: person
         columns:
         - name: lastname
@@ -207,17 +196,6 @@ sources:
         - name: _sdc_sequence
         - name: emailaddress
         - name: businessentityid
-        - name: _sdc_batched_at
-
-      - name: productproductphoto
-        columns:
-        - name: modifieddate
-        - name: productphotoid
-        - name: productid
-        - name: primary
-        - name: _sdc_sequence
-        - name: _sdc_table_version
-        - name: _sdc_received_at
         - name: _sdc_batched_at
 
       - name: store

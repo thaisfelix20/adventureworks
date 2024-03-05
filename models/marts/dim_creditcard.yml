@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: dim_creditcard
+    columns: 
+      - name: Sk_creditcard
+        testes:
+          - not_null
+          - unique    
+
+      - name: creditcardid
+        tests:
+          - not_null
+
+      - name: cardtype
+
+      - name: expyear
+
+      - name: expmonth
+
+      - name: cardnumber

@@ -29,4 +29,8 @@ models:
 
       - name: territoryid  
       
-      - name: emailaddress     
+      - name: emailaddress   
+
+      - name: name_store
+
+      - name: salespersonid     

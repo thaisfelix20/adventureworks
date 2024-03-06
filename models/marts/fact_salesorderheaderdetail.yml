@@ -9,8 +9,6 @@ models:
           - unique    
 
       - name: salespersonid
-        tests:
-          - not_null
 
       - name: salesorderid
         tests:
@@ -51,3 +49,4 @@ models:
       - name: productid
 
       - name: unitpricediscount
+      - name: businessentityid

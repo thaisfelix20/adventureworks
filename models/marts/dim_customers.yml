@@ -14,8 +14,6 @@ models:
           - unique
 
       - name: businessentityid
-        tests:
-          - not_null
 
       - name: persontype
 

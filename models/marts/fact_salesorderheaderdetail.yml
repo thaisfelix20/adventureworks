@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: fact_salesorderheaderdetail
+    columns: 
+      - name: Sk_salesorderheaderdetail
+        testes:
+          - not_null
+          - unique    
+
+      - name: salespersonid
+        tests:
+          - not_null
+
+      - name: salesorderid
+        tests:
+          - not_null
+
+      - name: billtoaddressid
+
+      - name: modifieddate
+
+      - name: taxamt
+
+      - name: shiptoaddressid
+
+      - name: territoryid
+
+      - name: status
+
+      - name: orderdate
+
+      - name: creditcardapprovalcode
+
+      - name: subtotal
+
+      - name: creditcardid
+
+      - name: freight
+
+      - name: totaldue
+
+      - name: customerid
+
+      - name: orderqty
+
+      - name: salesorderdetailid
+
+      - name: unitprice
+
+      - name: productid
+
+      - name: unitpricediscount

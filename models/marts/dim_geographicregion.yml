@@ -2,33 +2,41 @@ version: 2
 
 models:
   - name: dim_geographicregion
+    description: The 'dim_geographicregion' table is the combination of the country, city and addresses tables
     columns: 
       - name: Sk_geographicregion
+        description: The surrogate key of the shiptoaddress
         testes:
           - not_null
           - unique    
-
       - name: addressid
+        description: >
+          Primary key for Address records.      
         tests:
           - not_null
           - unique
-
       - name: addressline1
-
+        description: >
+          First street address line.  
       - name: addressline2
-
+        description: >
+          Second street address line.    
       - name: city
-
+        description: >
+          Name of the city.
       - name: stateprovinceid
-
+        description: >
+          Primary key for StateProvince records.  
       - name: postalcode   
-
+        description: >
+          Postal code for the street address.       
       - name: stateprovincecode
-
       - name: countryregioncode
-
+        description: >
+          ISO standard country or region code. Foreign key to CountryRegion.CountryRegionCode.            
       - name: name_state
-
+        description: State name
       - name: territoryid 
-      
+        description: ID of the territory in which the customer is located.      
       - name: name_country   
+        description: Country name      

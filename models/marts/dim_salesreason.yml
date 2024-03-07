@@ -2,20 +2,22 @@ version: 2
 
 models:
   - name: dim_salesreason
+    description: Lookup table of customer purchase reasons.
     columns: 
       - name: Sk_salesreason
+        description: Surrogate Key of the table
         testes:
           - not_null
           - unique    
-
       - name: salesreasonid
+        description: The natural key of the sale
         tests:
           - not_null
-
       - name: salesorderid
         tests:
           - not_null
-          
       - name: name_reason
-
+          description: Reason for purchase
       - name: reasontype
+        description: >
+          Category the sales reason belongs to.       

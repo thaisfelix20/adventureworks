@@ -2,17 +2,19 @@ version: 2
 
 models:
   - name: dim_product
+    description: Products sold or used in the manfacturing of sold products.   
     columns: 
       - name: Sk_products
+        description: The surrogate key of the product      
         testes:
           - not_null
           - unique    
-
       - name: productid
+        description: The natural key of the product      
         tests:
           - not_null
           - unique
-
       - name: name_product
-
+        description: The product name      
       - name: daystomanufacture
+        description: Number of days required to manufacture the product.

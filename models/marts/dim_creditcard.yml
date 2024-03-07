@@ -2,20 +2,22 @@ version: 2
 
 models:
   - name: dim_creditcard
+    description: Customer credit card information.
     columns: 
       - name: Sk_creditcard
+        description: The surrogate key of the creditcard id
         testes:
           - not_null
           - unique    
-
       - name: creditcardid
+        description: The natural key of the creditcard
         tests:
           - not_null
-
       - name: cardtype
-
+        description: The card name
       - name: expyear
-
+        description: Credit card expiration year.
       - name: expmonth
-
+        description: Credit card expiration month.
       - name: cardnumber
+        description: Credit card number.

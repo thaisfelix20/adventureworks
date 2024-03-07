@@ -2,51 +2,75 @@ version: 2
 
 models:
   - name: fact_salesorderheaderdetail
+    description: >
+     The fact table was generated from the 'salesorderheader' and 'salesorderdetail' tables.
+
     columns: 
       - name: Sk_salesorderheaderdetail
+        description: The surrogate key of the table
         testes:
           - not_null
           - unique    
-
       - name: salespersonid
-
+        description: >
+          Sales person who created the sales order. Foreign key to SalesPerson.BusinessEntityID.
       - name: salesorderid
+        description: >
+         Primary key. 
         tests:
           - not_null
-
       - name: billtoaddressid
-
+        description: >
+          Customer billing address. 
       - name: modifieddate
-
+        description: >
+          Date of last modification of the record  
       - name: taxamt
-
+        description: >
+          Tax amount.
       - name: shiptoaddressid
-
+        description: >
+          Customer shipping address. 
       - name: territoryid
-
+        description: >
+          ID of the territory in which the customer is located. Foreign key to SalesTerritory.SalesTerritoryID.       
       - name: status
-
+        description: >
+          Order current status. 1 = In process; 2 = Approved; 3 = Backordered; 4 = Rejected; 5 = Shipped; 6 = Cancelled
       - name: orderdate
-
+        description: >
+          Dates the sales order was created.
       - name: creditcardapprovalcode
-
+        description: >
+          Approval code provided by the credit card company.
       - name: subtotal
-
+        description: >
+          Sales subtotal. Computed as SUM(SalesOrderDetail.LineTotal)for the appropriate SalesOrderID.
       - name: creditcardid
-
+        description: >
+          Credit card identification number.
       - name: freight
-
+        description: >
+          Shipping cost.
       - name: totaldue
-
+        description: >
+          Total due from customer. Computed as Subtotal + TaxAmt + Freight.
       - name: customerid
-
+        description: >
+          Customer identification number.
       - name: orderqty
-
+        description: >
+          Quantity ordered per product.
       - name: salesorderdetailid
-
+        description: >
+          Primary key.
       - name: unitprice
-
+        description: >
+          Selling price of a single product.
       - name: productid
-
+        description: >
+          Product sold to customer.
       - name: unitpricediscount
+        description: >
+          Discount amount.
       - name: businessentityid

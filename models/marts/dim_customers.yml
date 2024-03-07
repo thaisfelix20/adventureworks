@@ -4,31 +4,31 @@ models:
   - name: dim_customers
     columns: 
       - name: Sk_customers
+        description: The surrogate key of the customer
         testes:
           - not_null
           - unique    
-
       - name: customerid
+        description: The natural key of the customer
         tests:
           - not_null
           - unique
-
       - name: businessentityid
-
+        description: The natural key of the person.
       - name: persontype
-
+        description: Primary type of person:SC = Store Contact, IN = Individual (retail) customer, SP = Sales person, EM = Employee (non-sales), VC = Vendor contact, GC = General contact
       - name: full_name
-
+        description: The customer name. Adopted as customer_fullname when person name is not null.
       - name: emailpromotion
-
+        description: 0 = Contact does not wish to receive e-mail promotions, 1 = Contact does wish to receive e-mail promotions from AdventureWorks, 2 = Contact does wish to receive e-mail promotions from AdventureWorks and selected partners.          
       - name: personid 
-
+        description: Foreign key to Person.BusinessEntityID 
       - name: storeid 
-
-      - name: territoryid  
-      
+        description: Foreign key to Store.BusinessEntityID
+      - name: territoryid 
+        description: ID of the territory in which the customer is located.      
       - name: emailaddress   
-
+        description: Where to send a person email.
       - name: name_store
-
+        description: The store name. Adopted as customer_fullname when person name is null. 
       - name: salespersonid     

@@ -3,209 +3,569 @@ version: 2
 sources:
   - name: raw_adventureworks
     schema: adventureworks2
+    description: >
+      The tables below contain information coming from the adventure works database.
     tables:
       - name: customer
-        columns: 
+        description: Current customer information. Also see the Person and Store tables.
+        columns:         
           - name: personid
+            description: >
+              Foreign key to Person.BusinessEntityID               
           - name: modifieddate
+            description: >
+              Date of last modification of the record        
           - name: rowguid
+            description: >
+              column to uniquely identify objects or entities in a computer system or on the Internet        
           - name: _sdc_table_version
+            description: >
+              Column created in bigquery        
           - name: territoryid
+            description: >
+              ID of the territory in which the customer is located. Foreign key to SalesTerritory.SalesTerritoryID.        
           - name: _sdc_received_at
+            description: >
+              Column created in bigquery        
           - name: _sdc_sequence
+            description: >
+              Column created in bigquery        
           - name: storeid	
+            description: >
+              Foreign key to Store.BusinessEntityID        
           - name: customerid
+            description: >
+              Primary key.        
           - name: _sdc_batched_at
+            description: >
+              Column created in bigquery
+
       - name: salesorderheader
+        description: >
+          General sales order information.
         columns:
           - name: purchaseordernumber
+            description: >
+              Customer purchase order number reference.
           - name: shipmethodid	
+            description: >
+              Shipping method. Foreign key to ShipMethod.ShipMethodID.
           - name: salesorderid	
+            description: >
+              Primary key.        
           - name: billtoaddressid
+            description: >
+              Customer billing address. Foreign key to Address.AddressID.
           - name: salespersonid
+            description: >
+              Sales person who created the sales order. Foreign key to SalesPerson.BusinessEntityID.
           - name: modifieddate
+            description: >
+              Date of last modification of the record        
           - name: rowguid
+            description: >
+              column to uniquely identify objects or entities in a computer system or on the Internet
           - name: taxamt
+            description: >
+              Tax amount.
           - name: shiptoaddressid
+            description: >
+              Customer shipping address. Foreign key to Address.AddressID.
           - name: onlineorderflag
+            description: >
+              0 = Order placed by sales person. 1 = Order placed online by customer.
           - name: _sdc_table_version
+            description: >
+              Column created in bigquery
           - name: territoryid
+            description: >
+              ID of the territory in which the customer is located. Foreign key to SalesTerritory.SalesTerritoryID.       
           - name: status
+            description: >
+              Order current status. 1 = In process; 2 = Approved; 3 = Backordered; 4 = Rejected; 5 = Shipped; 6 = Cancelled
           - name: currencyrateid
+            description: >
+              Currency exchange rate used. Foreign key to CurrencyRate.CurrencyRateID.
           - name: orderdate
+            description: >
+              Dates the sales order was created.
           - name: _sdc_received_at
+            description: >
+              Column created in bigquery
           - name: _sdc_sequence
+            description: >
+              Column created in bigquery        
           - name: creditcardapprovalcode
+            description: >
+              Approval code provided by the credit card company.                      
           - name: subtotal
+            description: >
+              Sales subtotal. Computed as SUM(SalesOrderDetail.LineTotal)for the appropriate SalesOrderID.
           - name: creditcardid
+            description: >
+              Credit card identification number. Foreign key to CreditCard.CreditCardID.
           - name: revisionnumber
+            description: >
+              Incremental number to track changes to the sales order over time.
           - name: freight
+            description: >
+              Shipping cost.
           - name: duedate
+            description: >
+              Date the order is due to the customer.
           - name: totaldue
+            description: >
+              Total due from customer. Computed as Subtotal + TaxAmt + Freight.
           - name: customerid
+            description: >
+              Customer identification number. Foreign key to Customer.BusinessEntityID.
           - name: shipdate
+            description: >
+              Date the order was shipped to the customer.                      
           - name: _sdc_batched_at
+            description: >
+              Column created in bigquery
           - name: accountnumber
+            description: >
+              Financial accounting number reference.
 
       - name: salesorderdetail
+        description: Individual products associated with a specific sales order. See SalesOrderHeader.
         columns:
           - name: orderqty
+            description: >
+              Quantity ordered per product.        
           - name: salesorderid
+            description: >
+              Primary key. Foreign key to SalesOrderHeader.SalesOrderID.        
           - name: salesorderdetailid
+            description: >
+              Primary key. One incremental unique number per product sold.        
           - name: unitprice
+            description: >
+              Selling price of a single product.        
           - name: specialofferid
+            description: >
+              Promotional code. Foreign key to SpecialOffer.SpecialOfferID.        
           - name: modifieddate
+            description: >
+              Date of last modification of the record        
           - name: rowguid
+            description: >
+              column to uniquely identify objects or entities in a computer system or on the Internet
           - name: _sdc_table_version
+            description: >
+              Column created in bigquery         
           - name: productid
+            description: >
+              Product sold to customer. Foreign key to Product.ProductID.        
           - name: _sdc_received_at
+            description: >
+              Column created in bigquery        
           - name: _sdc_sequence
+            description: >
+              Column created in bigquery        
           - name: _sdc_batched_at
+            description: >
+              Column created in bigquery        
           - name: carriertrackingnumber
+            description: >
+              Shipment tracking number supplied by the shipper.        
           - name: unitpricediscount
+            description: >
+              Discount amount.
+
       - name: salesreason
+        description: Lookup table of customer purchase reasons.
         columns:
           - name: reasontype
+            description: >
+              Category the sales reason belongs to.         
           - name: modifieddate
+            description: >
+              Date of last modification of the record        
           - name: name
+            description: >
+              Sales reason description.                        
           - name: salesreasonid
+            description: >
+              Primary key for SalesReason records.                       
           - name: _sdc_sequence
+            description: >
+              Column created in bigquery        
           - name: _sdc_table_version
+            description: >
+              Column created in bigquery       
           - name: _sdc_received_at
+            description: >
+              Column created in bigquery        
           - name: _sdc_batched_at
+            description: >
+              Column created in bigquery
 
       - name: salesorderheadersalesreason
-        columns: 
+        description: Cross-reference table mapping sales orders to sales reason codes.
+        columns:         
           - name: salesorderid
+            description: >
+              Primary key. Foreign key to SalesOrderHeader.SalesOrderID.        
           - name: modifieddate
+            description: >
+              Date of last modification of the record        
           - name: salesreasonid
+            description: >
+              Primary key. Foreign key to SalesReason.SalesReasonID.        
           - name: _sdc_sequence
+            description: >
+              Column created in bigquery        
           - name: _sdc_table_version
+            description: >
+              Column created in bigquery       
           - name: _sdc_received_at
+            description: >
+              Column created in bigquery        
           - name: _sdc_batched_at
+            description: >
+              Column created in bigquery
+                
       - name: creditcard
-        columns:
+        description: Customer credit card information.
+        columns:        
           - name: cardtype
+            description: >
+              Credit card name.         
           - name: expyear
+            description: >
+              Credit card expiration year.        
           - name: modifieddate
+            description: >
+              Date of last modification of the record        
           - name: _sdc_table_version
+            description: >
+              Column created in bigquery                   
           - name: expmonth
+            description: >
+              Credit card expiration month.                      
           - name: _sdc_received_at
+            description: >
+              Column created in bigquery        
           - name: _sdc_sequence
+            description: >
+              Column created in bigquery        
           - name: cardnumber
+            description: >
+            Credit card number.
           - name: creditcardid
+            description: >
+            Primary key for CreditCard records.                      
           - name: _sdc_batched_at
+            description: >
+              Column created in bigquery
 
       - name: product
-        columns:
+        description: Products sold or used in the manfacturing of sold products.
+        columns:        
           - name: sellenddate
+            description: >
+              Date the product was no longer available for sale.                      
           - name: safetystocklevel
+            description: >
+              Minimum inventory quantity.                      
           - name: finishedgoodsflag
+            description: >
+              0 = Product is not a salable item. 1 = Product is salable.                      
           - name: class
+            description: >
+              H = High, M = Medium, L = Low                      
           - name: makeflag
+            description: >
+              0 = Product is purchased, 1 = Product is manufactured in-house.                                  
           - name: productnumber
+            description: >
+              Unique product identification number.                      
           - name: reorderpoint
+            description: >
+              Inventory level that triggers a purchase order or work order.                      
           - name: modifieddate
+            description: >
+            Date of last modification of the record        
           - name: rowguid
+              description: >
+                column to uniquely identify objects or entities in a computer system or on the Internet        
           - name: productmodelid
+            description: >
+              Product is a member of this product model. Foreign key to ProductModel.ProductModelID.                      
           - name: weightunitmeasurecode
+            description: >
+              Unit of measure for Weight column.                      
           - name: standardcost
+            description: >
+              Standard cost of the product.                      
           - name: name
+            description: >
+              Name of the product.                                    
           - name: _sdc_table_version
+              description: >
+                Column created in bigquery        
           - name: style
+            description: >
+              W = Womens, M = Mens, U = Universal                      
           - name: sizeunitmeasurecode
+            description: >
+              Unit of measure for Size column.                      
           - name: productid
+            description: >
+              Primary key for Product records.                      
           - name: productsubcategoryid
+            description: >
+              Product is a member of this product subcategory. Foreign key to ProductSubCategory.ProductSubCategoryID.                      
           - name: _sdc_received_at
+              description: >
+                Column created in bigquery        
           - name: _sdc_sequence
+              description: >
+                Column created in bigquery        
           - name: listprice
+            description: >
+              Selling price.                      
           - name: daystomanufacture
+            description: >
+              Number of days required to manufacture the product.                      
           - name: productline
+            description: >
+              R = Road, M = Mountain, T = Touring, S = Standard                      
           - name: size
+            description: >
+              Product size.                      
           - name: _sdc_batched_at
+              description: >
+                Column created in bigquery        
           - name: color
+            description: >
+              Product color.                      
           - name: sellstartdate
+            description: >
+              Date the product was available for sale.                      
           - name: weight
+            description: >
+              Product weight.
 
+              
       - name: person
+        description: Human beings involved with AdventureWorks:employees, customer contacts, and vendor contacts.
         columns:
         - name: lastname
+          description: >
+            Last name of the person.
         - name: persontype
+          description: >
+            Primary type of person: SC = Store Contact, IN = Individual (retail) customer, SP = Sales person, EM = Employee (non-sales), VC = Vendor contact, GC = General contact
         - name: namestyle
+          description: >
+            0 = The data in FirstName and LastName are stored in western style (first name, last name) order.  1 = Eastern style (last name, first name) order.
         - name: suffix
+          description: >
+            Surname suffix. For example, Sr. or Jr.
         - name: modifieddate
+          description: >
+            Date of last modification of the record
         - name: rowguid
+          description: >
+            column to uniquely identify objects or entities in a computer system or on the Internet              
         - name: _sdc_table_version
+          description: >
+            Column created in bigquery                  
         - name: emailpromotion
+          description: >
+            0 = Contact does not wish to receive e-mail promotions, 1 = Contact does wish to receive e-mail promotions from AdventureWorks, 2 = Contact does wish to receive e-mail promotions from AdventureWorks and selected partners.          
         - name: _sdc_received_at
+          description: >
+            Column created in bigquery            
         - name: _sdc_sequence
+          description: >
+            Column created in bigquery
         - name: title
+          description: >
+            A courtesy title. For example, Mr. or Ms.          
         - name: businessentityid
+          description: >
+            Primary key for Person records.          
         - name: _sdc_batched_at
+          description: >
+            Column created in bigquery
         - name: firstname
+          description: >
+            First name of the person.          
         - name: middlename
+          description: >
+            Middle name or middle initial of the person.
 
       - name: countryregion
-        columns:
+        description: Lookup table containing the ISO standard codes for countries and regions.
+        columns: 
         - name: countryregioncode
+          description: >
+            ISO standard code for countries and regions.
         - name: modifieddate
+          description: >
+            Date of last modification of the record
         - name: name
+          description: >
+            Country or region name.            
         - name: _sdc_sequence
+          description: >
+            Column created in bigquery
         - name: _sdc_table_version
+          description: >
+            Column created in bigquery                 
         - name: _sdc_received_at
+          description: >
+            Column created in bigquery                 
         - name: _sdc_batched_at
+          description: >
+            Column created in bigquery
 
       - name: stateprovince
+        description: State and province lookup table.
         columns:
         - name: stateprovinceid
+          description: >
+            Primary key for StateProvince records.            
         - name: countryregioncode
+          description: >
+            ISO standard country or region code. Foreign key to CountryRegion.CountryRegionCode.            
         - name: modifieddate
+          description: >
+            Date of last modification of the record
         - name: rowguid
+          description: >
+            column to uniquely identify objects or entities in a computer system or on the Internet                     
         - name: name
+          description: >
+            State or province description.            
         - name: _sdc_table_version
+          description: >
+            Column created in bigquery
         - name: territoryid
+          description: >
+            ID of the territory in which the state or province is located. Foreign key to SalesTerritory.SalesTerritoryID.
         - name: _sdc_received_at
+          description: >
+            Column created in bigquery
         - name: _sdc_sequence
+          description: >
+            Column created in bigquery
         - name: isonlystateprovinceflag
+          description: >
+            0 = StateProvinceCode exists. 1 = StateProvinceCode unavailable, using CountryRegionCode.
         - name: _sdc_batched_at
+          description: >
+            Column created in bigquery                
         - name: stateprovincecode
-
+          description: >
+            ISO standard state or province code.
+            
       - name: address
+        description: Street address information for customers, employees, and vendors.
         columns:
         - name: stateprovinceid
+          description: >
+            Unique identification number for the state or province. Foreign key to StateProvince table.            
         - name: city
+          description: >
+            Name of the city.            
         - name: addressline2
+          description: >
+            Second street address line.            
         - name: modifieddate
+          description: >
+            Date of last modification of the record
         - name: rowguid
+          description: >
+            column to uniquely identify objects or entities in a computer system or on the Internet                     
         - name: _sdc_table_version
+          description: >
+            Column created in bigquery        
         - name: postalcode
+          description: >
+            Postal code for the street address.            
         - name: spatiallocation
+          description: >
+            Latitude and longitude of this address.            
         - name: _sdc_received_at
+          description: >
+            Column created in bigquery
         - name: _sdc_sequence
+          description: >
+            Column created in bigquery
         - name: addressline1
+          description: >
+            First street address line.            
         - name: _sdc_batched_at
+          description: >
+            Column created in bigquery
         - name: addressid
+          description: >
+            Primary key for Address records.
 
       - name: emailaddress
+        description: Where to send a person email.
         columns:
         - name: emailaddressid
+          description: >
+            Primary key. ID of this email address.
         - name: modifieddate
+            description: >
+            Date of last modification of the record
         - name: rowguid
-        - name: _sdc_table_version
+          description: >
+            column to uniquely identify objects or entities in a computer system or on the Internet                     
+          - name: _sdc_table_version
+            description: >
+              Column created in bigquery        
         - name: _sdc_received_at
+          description: >
+            Column created in bigquery
         - name: _sdc_sequence
+              description: >
+                Column created in bigquery
         - name: emailaddress
+          description: >
+            E-mail address for the person.
         - name: businessentityid
+          description: >
+            Primary key. Person associated with this email address.  Foreign key to Person.BusinessEntityID
         - name: _sdc_batched_at
-
+              description: >
+                Column created in bigquery
+                
       - name: store
+        description: Customers (resellers) of Adventure Works products.
         columns: 
         - name: salespersonid
+          description: >
+            ID of the sales person assigned to the customer. Foreign key to SalesPerson.BusinessEntityID.
         - name: modifieddate
+          description: >
+            Date of last modification of the record
         - name: rowguid
+          description: >
+            column to uniquely identify objects or entities in a computer system or on the Internet                     
         - name: name
+          description: >
+            Name of the store.
         - name: _sdc_table_version
+          description: >
+            Column created in bigquery        
         - name: _sdc_received_at
+          description: >
+            Column created in bigquery
         - name: _sdc_sequence
+          description: >
+            Column created in bigquery
         - name: businessentityid
+          description: >
+            Primary key. Foreign key to Customer.BusinessEntityID.
         - name: _sdc_batched_at
+              description: >
+                Column created in bigquery

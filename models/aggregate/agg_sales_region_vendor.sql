@@ -18,11 +18,11 @@ region as (
         , persontype
     from {{ ref('stg_person') }}
 )
-, completa as (
+, completed as (
     select 
         fact.salesorderid
         , fact.billtoaddressid
-        , fact.salespersonid
+        , fact.salespersonid as personid
         , fact.modifieddate
         , fact.taxamt
         , fact.shiptoaddressid
@@ -40,11 +40,11 @@ region as (
         , fact.unitprice
         , fact.productid
         , fact.unitpricediscount
-        , p.full_name_vendor
+        , p.full_name_vendor as vendedor
         , p.persontype
         , r.name_country 
         , r.addressid
-        , r.city
+        , r.city as city
         , r.name_state
     from fact_sales as fact
     left join person p
@@ -52,6 +52,24 @@ region as (
     left join region r
         on fact.billtoaddressid = r.addressid
 )
-select *
-from completa
+, aggreg as (
+    select 
+        sum(unitprice) as Valor_total_negociado
+        , sum(orderqty) as Quantidade_comprada 
+        , avg(unitprice) as Ticket_medio
+        , city
+        , vendedor
+        , personid
+    from completed
+    group by city, vendedor, personid
+)
+select * 
+from aggreg
+--valor venda(faturamento) 
+--quantidade vendida de produtos
+--quantidade de pedidos
+-- agrupar: vendedor(ID) e cidade
+
+--Codestyle
+
 

@@ -254,10 +254,10 @@ sources:
               Column created in bigquery        
           - name: cardnumber
             description: >
-            Credit card number.
+              Credit card number.
           - name: creditcardid
             description: >
-            Primary key for CreditCard records.                      
+              Primary key for CreditCard records.                      
           - name: _sdc_batched_at
             description: >
               Column created in bigquery
@@ -288,10 +288,10 @@ sources:
               Inventory level that triggers a purchase order or work order.                      
           - name: modifieddate
             description: >
-            Date of last modification of the record        
+              Date of last modification of the record        
           - name: rowguid
-              description: >
-                column to uniquely identify objects or entities in a computer system or on the Internet        
+            description: >
+              column to uniquely identify objects or entities in a computer system or on the Internet        
           - name: productmodelid
             description: >
               Product is a member of this product model. Foreign key to ProductModel.ProductModelID.                      
@@ -305,8 +305,8 @@ sources:
             description: >
               Name of the product.                                    
           - name: _sdc_table_version
-              description: >
-                Column created in bigquery        
+            description: >
+              Column created in bigquery        
           - name: style
             description: >
               W = Womens, M = Mens, U = Universal                      
@@ -320,11 +320,11 @@ sources:
             description: >
               Product is a member of this product subcategory. Foreign key to ProductSubCategory.ProductSubCategoryID.                      
           - name: _sdc_received_at
-              description: >
-                Column created in bigquery        
+            description: >
+              Column created in bigquery        
           - name: _sdc_sequence
-              description: >
-                Column created in bigquery        
+            description: >
+              Column created in bigquery        
           - name: listprice
             description: >
               Selling price.                      
@@ -338,8 +338,8 @@ sources:
             description: >
               Product size.                      
           - name: _sdc_batched_at
-              description: >
-                Column created in bigquery        
+            description: >
+              Column created in bigquery        
           - name: color
             description: >
               Product color.                      
@@ -349,8 +349,7 @@ sources:
           - name: weight
             description: >
               Product weight.
-
-              
+  
       - name: person
         description: Human beings involved with AdventureWorks:employees, customer contacts, and vendor contacts.
         columns:
@@ -515,20 +514,20 @@ sources:
           description: >
             Primary key. ID of this email address.
         - name: modifieddate
-            description: >
+          description: >
             Date of last modification of the record
         - name: rowguid
           description: >
             column to uniquely identify objects or entities in a computer system or on the Internet                     
-          - name: _sdc_table_version
-            description: >
-              Column created in bigquery        
+        - name: _sdc_table_version
+          description: >
+            Column created in bigquery        
         - name: _sdc_received_at
           description: >
             Column created in bigquery
         - name: _sdc_sequence
-              description: >
-                Column created in bigquery
+          description: >
+            Column created in bigquery
         - name: emailaddress
           description: >
             E-mail address for the person.
@@ -536,8 +535,8 @@ sources:
           description: >
             Primary key. Person associated with this email address.  Foreign key to Person.BusinessEntityID
         - name: _sdc_batched_at
-              description: >
-                Column created in bigquery
+          description: >
+            Column created in bigquery
                 
       - name: store
         description: Customers (resellers) of Adventure Works products.
@@ -567,5 +566,5 @@ sources:
           description: >
             Primary key. Foreign key to Customer.BusinessEntityID.
         - name: _sdc_batched_at
-              description: >
-                Column created in bigquery
+          description: >
+            Column created in bigquery
